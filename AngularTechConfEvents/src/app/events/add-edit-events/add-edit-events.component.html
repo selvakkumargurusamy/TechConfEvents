@@ -1,0 +1,57 @@
+<div class="d-flex flex-row bd-highlight mb-9">
+    <div class="p-2 w-100 bd-highlight">
+  
+      <div class="input-group mb-12">
+        <span class="input-group-text">Event Titile</span>
+        <input type="text" class="form-control" [(ngModel)]="eventTitle">
+      </div>
+      <div class="input-group mb-12">
+        <span class="input-group-text">Description</span>
+        <input type="text" class="form-control" [(ngModel)]="description">
+      </div>
+      <div class="input-group mb-12">
+        <span class="input-group-text">Event Start Date</span>
+        <input type="text" class="form-control" [(ngModel)]="eventStartDate">
+      </div>
+      <div class="input-group mb-12">
+        <span class="input-group-text">Event End Date</span>
+        <input type="text" class="form-control" [(ngModel)]="eventEndDate">
+      </div>
+      <div class="input-group mb-12">
+        <span class="input-group-text">Is Online</span>
+        <!-- <input type="checkbox" class="form-control" [(ngModel)]="isOnline"> -->
+        <!-- <input type="checkbox" [value]="isOnline" (change)="onCheckboxChange($event)"/> -->
+        <input
+  type="checkbox"
+  [checked]="isOnline"
+  (change)="isOnline = !isOnline"/>
+      </div>
+      
+      <div class="input-group mb-12">
+        <span class="input-group-text">Venue</span>
+        <input type="text" class="form-control" [(ngModel)]="venue">
+      </div>
+      <div class="input-group mb-12">
+        <span class="input-group-text">Website</span>
+        <input type="text" class="form-control" [(ngModel)]="website">
+      </div>
+      <div class="input-group mb-12">
+        <span class="input-group-text">LinkForDetails</span>
+        <input type="text" class="form-control" [(ngModel)]="linkForDetails">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text">Speaker</span>
+        <select name="selectedSpeaker" [(ngModel)]="selectedSpeaker" name="status" placeholder="select" (ngModelChange)="onOptionsSelected($event)">
+            <option *ngFor="let speaker of SpeakerList" [ngValue]="speaker">{{speaker.name}}</option>
+        </select>
+      </div>  
+     
+    </div>
+  </div>
+  <button (click)="addEvent()" *ngIf="events.eventId == null" class="btn btn-primary">
+    Add
+  </button>
+  
+  <button (click)="updateEvent()" *ngIf="events.eventId != null" class="btn btn-primary">
+    Update
+  </button>

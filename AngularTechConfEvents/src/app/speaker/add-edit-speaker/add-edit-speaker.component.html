@@ -1,0 +1,24 @@
+<div class="d-flex flex-row bd-highlight mb-3">
+    <div class="p-2 w-50 bd-highlight">
+      <div class="input-group mb-3">
+        <span class="input-group-text">Name</span>
+        <input type="text" class="form-control" [(ngModel)]="name">
+      </div>      
+      <div class="input-group mb-3">
+        <span class="input-group-text">Biography</span>
+        <input type="text" class="form-control" [(ngModel)]="biography">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text">SocialLinks</span>
+        <input type="text" class="form-control" [(ngModel)]="socialLinks">
+      </div>
+    </div>
+    
+  </div>
+  <button type="button" (click)="addSpeaker()" *ngIf="speaker.speakerId == null" class="btn btn-primary">
+    Create
+  </button>
+  
+  <button type="button" (click)="updateSpeaker()" *ngIf="speaker.speakerId != null" class="btn btn-primary">
+    Update
+  </button>
